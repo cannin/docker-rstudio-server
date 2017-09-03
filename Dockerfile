@@ -11,6 +11,8 @@ RUN (adduser --disabled-password --gecos "" guest && echo "guest:guest"|chpasswd
 RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+RUN update-locale
+
 EXPOSE 8787
 
 CMD ["/usr/bin/supervisord"]
